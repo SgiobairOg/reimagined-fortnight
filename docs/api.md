@@ -14,6 +14,14 @@
 
 > Return a page of `<limit>` listings starting from `<offset>` pages
 
+### GET `listings/<realm>`
+
+> Return all listings for the given realm
+
+### GET `listings/<realm>?offset=<offset>&limit=<limit>`
+
+> Return a page of `<limit>` listings starting from `<offset>` pages for the given realm
+
 ### GET `listings/<id>`
 
 > Return a single listing with the matching ID
@@ -22,41 +30,17 @@
 
 > Return the seller for a listing
 
-### GET `listings/<id>/manufacturers`
-
-> Return the manufacturer for a listing
-
-### GET `listings/<id>/models`
-
-> Return the model for a listing
-
-### GET `listings/<id>/photos`
-
-> Return all photos for the listing
-
 ### POST `listings`
 
 > Create a new listing
-
-### POST `listings/<id>/photos`
-
-> Add a new photo to the listing
 
 ### PUT `listings/<id>`
 
 > Update a single listing
 
-### PUT `listings/<id>/photos/<id>`
-
-> Update a listing photo
-
 ### DELETE `listings/<id>`
 
 > Delete a single listing
-
-### DELETE `listings/<id>/photos/<id>`
-
-> Delete a listing photo
 
 ## Sellers
 

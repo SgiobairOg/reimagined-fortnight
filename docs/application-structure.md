@@ -2,7 +2,7 @@
 
 A Coding Exercise to develop an automotive listing application with customer review support.
 
-_Jason Wilson, Developer_
+Jason Wilson, Developer
 
 ## Platform Architecture
 
