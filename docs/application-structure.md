@@ -165,10 +165,16 @@ The review object contains the model and methods for retrieving reviews for a se
 
 ### Email Handler
 
-Emails would be sent using PHPMailer and their provided classes for handling email creation and sending. This saves the trouble of building out a mail handler on top of PHP mail().
+Emails would be sent using PHPMailer and their provided classes for handling email creation and sending. This saves the trouble of building out a mail handler on top of PHP `mail()`.
 
 ### S3 and CloudFront
 
 For the scope of the exercise images for the listings would be manually added to S3 but in the event a management app was built, the AWS SDK would be used to add the images. The cloudfront root URL would be stored as a configuration property for the client so that files could be retrieved for display using the CDN.
 
 ## Performance Enhancement
+
+Using CloudFront will speed up image rendering for pages by serving the images from the closest node to the user. Additional improvement can be made by setting up the S3 bucket to serve images through a Lambda function that resizes the images before sending them to CloudFront so that we can always request a right-sized version of the image.
+
+VueJS and CSS files would be minimized and could be served through the CDN as well.
+
+Using elastic-search will speed up the response time for user queries for listings.
