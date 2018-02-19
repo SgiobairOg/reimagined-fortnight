@@ -36,6 +36,8 @@ The database will be built using PostgreSQL. Using a relational database over a 
 
 ## Data Model
 
+![Database Diagram](https://github.com/SgiobairOg/reimagined-fortnight/blob/master/docs/assets/db.png)
+
 ### Listings
 
 | Column           | Type                                                                       | PKFK |
@@ -139,7 +141,9 @@ The Listings object would contain the model and methods for retrieving and displ
 
 * Retrieve the details of an individual listing
 
-The Seller data, including the total rating and contact email is retrieved as part of the listing call through a JOIN in the API. Since I don't plan on manipulating the Seller info there is no need for a Seller object, Seller is just a property of a listing.
+### Sellers Object
+
+The sellers data would not be managed separately in the scope of the exercise but I decided it shoudl be a separate table and object as, down the line, the seller data could be changed through a dashboard and I wouldn't want the data to be stored in the listings themselves. Seller data would be displayed through a join on the Listing's or Review's SellerID field when looking at a Listing or Review. For the scope of the exercise the Sellers object would not be needed as the data won't be manipulated, just read from the DB through the API.
 
 ### Reviews Object
 
