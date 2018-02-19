@@ -8,7 +8,7 @@
 
 ### GET `listings`
 
-> Return all listings in the database
+> Return all listings in the database from elasticsearch
 
 ### GET `listings?offset=<offset>&limit=<limit>`
 
@@ -22,13 +22,17 @@
 
 > Return a page of `<limit>` listings starting from `<offset>` pages for the given realm
 
+### GET `listings/<realm>?keyword=<keyword>`
+
+> Return all listings for the given realm that match the keyword
+
+### GET `listings/<realm>?keyword=<keyword>&offset=<offset>&limit=<limit>`
+
+> Return a page of `<limit>` listings starting from `<offset>` pages for the given realm and keyword
+
 ### GET `listings/<id>`
 
 > Return a single listing with the matching ID
-
-### GET `listings/<id>/sellers`
-
-> Return the seller for a listing
 
 ### POST `listings`
 

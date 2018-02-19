@@ -133,6 +133,8 @@ The session object would store information on the user's activity for example ke
 
 The Listings object would contain the model and methods for retrieving and displaying listings. The methods needed for the app as described would be:
 
+* Retrieve listing IDs that match a query from the API by pages
+
 * Retrieve listings from the API by pages
 
 * Retrieve the next page of listings from the API
@@ -158,3 +160,15 @@ The review object contains the model and methods for retrieving reviews for a se
 * Retrieve the previous page of Reviews
 
 * Retrieve an individual review
+
+## Third-Party Components
+
+### Email Handler
+
+Emails would be sent using PHPMailer and their provided classes for handling email creation and sending. This saves the trouble of building out a mail handler on top of PHP mail().
+
+### S3 and CloudFront
+
+For the scope of the exercise images for the listings would be manually added to S3 but in the event a management app was built, the AWS SDK would be used to add the images. The cloudfront root URL would be stored as a configuration property for the client so that files could be retrieved for display using the CDN.
+
+## Performance Enhancement
