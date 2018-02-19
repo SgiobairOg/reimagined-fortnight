@@ -1,3 +1,3 @@
-// Define the structure for Listing model
+// Define the structure for Sellers model
 
-// Provide constructor for a new Listing object
+// Provide constructor for a new Seller object
