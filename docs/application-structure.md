@@ -22,7 +22,9 @@ The management console is beyond the scope of the exercise and will be detailed 
 
 ### Client App Technologies
 
-The client side listing application will be built using Apache to serve a Laravel and Vue.JS app. Laravel provides a secure framework with good support and a familliar MVC structure. Laravel’s templating also provides an easy way to integrate with the Vue components. Vue was selected for its ease of use in building reactive web apps. Components will handle the search form and listings pages which will allow for instant feedback for users without the need to pull in JQuery to edit the DOM or refresh entire pages.
+The client for the listing application would be built using a serverside MVC framework serving a client-side VueJS app. The MVC framework helps separate out the concerns giving a model to speak with the API, controllers to take actions on the model, and views to handle purely presentational tasks. I've worked with CakePHP for PHP and Ruby on Rails for Ruby but would like to use Laravel here for as the templating engine and support seem to be better. Vue was selected for the client-side for its ease of use in building reactive web apps. Components will handle the search form and listings pages which will allow for instant feedback for users without the need to pull in JQuery or other scripting to edit the DOM or refresh entire pages. This will help speed up the user interactions.
+
+CloudFront and S3 will be used to serve and store images respectively. CoudFront, as a CDN front for the S3 bucket will serve the images from the closest edge point to an end-user helping to speed up the serving of the images.
 
 ### API Technology
 
@@ -108,3 +110,47 @@ The database will be built using PostgreSQL. Using a relational database over a 
 | title    | Text                 |      |
 | body     | Text                 |      |
 | rating   | smallInt             |      |
+
+## Objects and Methods
+
+### Session Object
+
+The session object would store information on the user's activity for example keeping a list of the last five listings the user has visited to display in a recent listings section. The Object would define the structure of the session data and would have the following methods:
+
+* Create a new session
+
+* Store a session in Redis
+
+* Retrieve a session from Redis
+
+* Update session data in Redis
+
+* Delete session data from Redis
+
+### Listings Object
+
+The Listings object would contain the model and methods for retrieving and displaying listings. The methods needed for the app as described would be:
+
+* Retrieve listings from the API by pages
+
+* Retrieve the next page of listings from the API
+
+* Retrieve the previous page of listings from the API
+
+* Retrieve the details of an individual listing
+
+The Seller data, including the total rating and contact email is retrieved as part of the listing call through a JOIN in the API. Since I don't plan on manipulating the Seller info there is no need for a Seller object, Seller is just a property of a listing.
+
+### Reviews Object
+
+The review object contains the model and methods for retrieving reviews for a seller. The Seller Information is passed to the Reviews object from the Listings object so that the seller info can be displaye don the page and the Seller Id can be used to retrieve reviews. The methods needed for the app as described would be:
+
+* Retrieve number of reviews for Seller
+
+* Retrieve reviews from the API by pages for Seller
+
+* Retrieve the next page of Reviews
+
+* Retrieve the previous page of Reviews
+
+* Retrieve an individual review
